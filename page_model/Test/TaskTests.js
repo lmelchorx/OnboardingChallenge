@@ -1,7 +1,6 @@
 import LoginPage from '../Pages/LoginPage'
-import UserPage from '../Pages/UserPage'
 import LoggedPage from '../Pages/LoggedPage'
-import { CREDENTIALS, USERINFO, PAGELABELS, URL } from '../data/Constants'
+import { CREDENTIALS, PAGELABELS, URL } from '../data/Constants'
 
 fixture('Tasks Testing').page `${URL}`.beforeEach(async () => {await LoginPage.goToLoginPage();});
 
@@ -14,9 +13,8 @@ test('Users can create a task', async t => {
 
 test('Users can create multiple tasks', async t=>{
     await LoginPage.submitLoginForm(CREDENTIALS.VALID_USER.USERNAME, CREDENTIALS.VALID_USER.PASSWORD)
-    await t.expect(UserPage.pageTittle.exists).ok()
-    await LoggedPage.addItemToCart(1)
-    await LoggedPage.goToShoppingCart()
+    await t.expect(LoginPage.pageTittle.exists).ok()
+    await LoggedPage.createMultipleTaks(6, PAGELABELS.TASKNAME_RANDOM, PAGELABELS.TASKCONTENT)
     await t.expect(LoggedPage.itemLabel.exists).ok()
 })
 
