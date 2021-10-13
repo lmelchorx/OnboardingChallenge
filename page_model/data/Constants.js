@@ -20,6 +20,7 @@ export const PAGELABELS = {
     USERINFOERROR:'Error: First Name is required',
     CHECKOUTLABEL: 'Checkout: Overview',
     TASKNAME: 'Test Task 1',
+    TASKNAMEB: 'TTest Task 1',
     TASKCONTENT: 'This is a test',
     TASKNAME_RANDOM:`Test task${uniqueIdentifier()}`,
 
